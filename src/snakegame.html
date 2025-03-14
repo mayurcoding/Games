@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game
+    </title>
+    <style>
+
+        #gameContainer {
+            width: 40vw;
+            height: 40vw;
+            background-color: #02040c;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .gameBoardPixel {
+            width: 1vw;
+            height: 1vw;
+            border-radius: 8px;
+        }
+        .snakeBodyPixel {
+            background-color: #4ce71d;
+        }
+        .food {
+            background-color: #0e66ca;
+        }
+        #scoreContainer {
+            font-size: 24px;
+            margin-top: 10px;
+        }
+        #onScreenControllers {
+            display: none;
+        }
+        @media only screen and (max-width: 768px) {
+            #gameContainer {
+                width: 80vw;
+                height: 80vw;
+            }
+            .gameBoardPixel {
+                width: 2vw;
+                height: 2vw;
+            }
+            #onScreenControllers {
+                display: flex;
+                justify-content: center;
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="gameContainer"></div>
+
+    <div id="scoreContainer">
+        <div class="scoreBoard">Your Score<span id="pointsEarned">0</span></div>
+
+    </div>
+
+    </div>
+    <div id="onScreenControllers">
+
+        <button id="leftButton">◀️</button>
+        <button id="upButton">🔼</button>
+        <button id="downButton">🔽</button>
+        <button id="rightButton">▶️</button>
+    </div>
+
+    <script>
+        const GAME_PIXEL_COUNT = 40;
+        const SQUARE_OF_GAME_PIXEL_COUNT = GAME_PIXEL_COUNT * GAME_PIXEL_COUNT;
+        let changedTheDirOnce = false;
+        let totalFoodAte = 0;
+        let currentFoodPosition = 0;
+        let positionArray = [];
+        let snakeCurrentDirection = 39;
+        let currentSnakeHeadPosition = Math.floor(SQUARE_OF_GAME_PIXEL_COUNT / 2);
+        let gameContainer = document.getElementById('gameContainer');
+
+        function createGameBoardPixels() {
+            let html = "";
+            for (let i = 0; i < SQUARE_OF_GAME_PIXEL_COUNT; i++) {
+                html += `<div class="gameBoardPixel" id="pixel${i}"></div>`;
+            }
+            gameContainer.innerHTML = html;
+        }
+        function createFood() {
+            document.querySelectorAll('.food').forEach(e => e.classList.remove('food'));
+            currentFoodPosition = Math.floor(Math.random() * SQUARE_OF_GAME_PIXEL_COUNT);
+            document.getElementById(`pixel${currentFoodPosition}`).classList.add('food');
+        }
+        function moveSnake() {
+            switch (snakeCurrentDirection) {
+                case 37: currentSnakeHeadPosition--; break;
+                case 38: currentSnakeHeadPosition -= GAME_PIXEL_COUNT; break;
+                case 39: currentSnakeHeadPosition++; break;
+                case 40: currentSnakeHeadPosition += GAME_PIXEL_COUNT; break;
+            }
+            if (currentSnakeHeadPosition < 0 || currentSnakeHeadPosition >= SQUARE_OF_GAME_PIXEL_COUNT || positionArray.includes(currentSnakeHeadPosition)) {
+                alert(`Game Over! Your Score: ${totalFoodAte}`);
+                location.reload();
+            }
+            document.getElementById(`pixel${currentSnakeHeadPosition}`).classList.add("snakeBodyPixel");
+            positionArray.push(currentSnakeHeadPosition);
+            if (currentSnakeHeadPosition === currentFoodPosition) {
+                totalFoodAte++;
+                document.getElementById("pointsEarned").textContent = totalFoodAte;
+                createFood();
+            } else {
+                let tail = positionArray.shift();
+                document.getElementById(`pixel${tail}`).classList.remove("snakeBodyPixel");
+            }
+            changedTheDirOnce = false;
+        }
+        function changeDirection(newDir) {
+            if (changedTheDirOnce) return;
+            if ((newDir === 37 && snakeCurrentDirection !== 39) ||
+                (newDir === 38 && snakeCurrentDirection !== 40) ||
+                (newDir === 39 && snakeCurrentDirection !== 37) ||
+                (newDir === 40 && snakeCurrentDirection !== 38)) {
+                snakeCurrentDirection = newDir;
+                changedTheDirOnce = true;
+            }
+        }
+        createGameBoardPixels();
+        createFood();
+        setInterval(moveSnake, 100);
+
+        document.addEventListener('keydown', e => changeDirection(e.keyCode));
+        document.getElementById("leftButton").onclick = () => changeDirection(37);
+        document.getElementById("upButton").onclick = () => changeDirection(38);
+        document.getElementById("downButton").onclick = () => changeDirection(40);
+        document.getElementById("rightButton").onclick = () => changeDirection(39);
+    </script>
+
+</body>
+
+</html>

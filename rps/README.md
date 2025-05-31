@@ -55,7 +55,24 @@ This fun mini-project lets you challenge your computer in a classic game of ston
 - **JavaScript (ES6)**
 
 ---
+## 🚀 Additional Functionality
 
+- **Responsive Design**  
+   The game layout adapts seamlessly to different screen sizes, making it playable on both desktop and mobile devices.
+
+- **Sound Effects**  
+   Optional sound effects play on each move and when a player wins a round, enhancing the gaming experience.
+
+- **Dark Mode**  
+   Toggle between light and dark themes for comfortable play in any environment.
+
+- **Animated Buttons**  
+   Interactive button animations provide visual feedback when making selections.
+
+- **Accessibility Features**  
+   Keyboard navigation and screen reader support ensure the game is accessible to all users.
+
+---
 ## 📦 Setup Instructions
 
 1. **Clone the Repository**

@@ -74,7 +74,32 @@ This fun mini-project lets you challenge your computer in a classic game of ston
 
 ---
 ## 📦 Setup Instructions
+Before you begin, ensure you have [Node.js](https://nodejs.org/) installed (optional, only needed for development or running a local server).
 
+2. **Open the Game**
+
+   - Simply open `index.html` in your web browser to start playing.
+   - No build steps or dependencies are required for basic gameplay.
+
+3. **Development Mode (Optional)**
+
+   - To run a local development server with live reload, you can use [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) (VS Code extension) or any static server:
+     ```bash
+     npx serve .
+     ```
+   - Edit the source files (`index.html`, `style.css`, `script.js`) and refresh to see your changes.
+
+4. **Customizing the Game**
+
+   - You can modify the rules, add new features, or change the UI by editing the source files.
+   - All assets and scripts are located in the project root for easy access.
+
+5. **Feedback & Contributions**
+
+   - Found a bug or have a feature request? Open an issue or submit a pull request on GitHub.
+   - Contributions are welcome!
+
+---
 1. **Clone the Repository**
 
    ```bash

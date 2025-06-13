@@ -1,70 +1,38 @@
 # Rock Paper Scissors Game
 
-## Overview
+## Detailed Theory
 
-This project is a simple interactive implementation of the classic **Rock Paper Scissors** game using HTML, CSS, and JavaScript. The user plays against the computer, and the interface displays scores, results, and game rules.
+The **Rock Paper Scissors** game is a classic example of a zero-sum, non-transitive game in game theory. In this context, "zero-sum" means that one player's gain is exactly balanced by the other player's loss. "Non-transitive" refers to the fact that no single choice is superior to the others; each option can be beaten by another in a cyclical manner.
 
-## How It Works
+### Game Theory Perspective
 
-- **Gameplay:**  
-    - The user selects one of three options: Rock (✊), Paper (✋), or Scissors (✌️).
-    - The computer randomly selects its choice.
-    - The winner is determined based on the classic rules:
-        - Rock beats Scissors
-        - Scissors beats Paper
-        - Paper beats Rock
-        - If both choices are the same, it's a tie.
+- **Players:** Two participants (in this project, the user and the computer).
+- **Strategies:** Each player simultaneously chooses one of three possible moves: Rock, Paper, or Scissors.
+- **Payoff Matrix:** The outcome is determined by the combination of choices:
+    - Rock beats Scissors (Rock wins)
+    - Scissors beats Paper (Scissors wins)
+    - Paper beats Rock (Paper wins)
+    - Identical choices result in a tie
 
-- **Score Tracking:**  
-    - Both the player's and computer's scores are displayed and updated after each round.
+This cyclical dominance ensures that no strategy is always superior, encouraging unpredictability and fairness.
 
-- **Result Display:**  
-    - After each round, a message shows both choices and the result (win, lose, or tie).
+### Randomness and Fairness
 
-- **Rules Panel:**  
-    - A panel is available to explain the rules of the game, which can be toggled on or off.
+In this implementation, the computer's choice is generated randomly, simulating an unbiased opponent. This randomness is crucial for fairness, as it prevents the user from predicting the computer's moves and ensures each round is independent.
 
-## Theoretical Background
+### User Interaction and Feedback
 
-**Rock Paper Scissors** is a hand game usually played between two people. Each player simultaneously forms one of three shapes with an outstretched hand. The possible outcomes are:
+The game provides immediate feedback after each round, displaying both choices and the result. This real-time interaction helps users understand the rules and outcomes, reinforcing the cyclical nature of the game.
 
-- **Rock** (a fist)
-- **Paper** (an open hand)
-- **Scissors** (a fist with the index and middle fingers extended, forming a V)
+### Educational Value
 
-The rules are simple:
-- Rock crushes Scissors
-- Scissors cut Paper
-- Paper covers Rock
+This project demonstrates several key programming and theoretical concepts:
+- **Conditional Logic:** Determining the winner based on user and computer choices.
+- **Random Number Generation:** Simulating the computer's unpredictable moves.
+- **State Management:** Tracking and updating scores.
+- **User Interface Design:** Presenting information clearly and interactively.
 
-If both players choose the same shape, the game is tied and usually replayed.
+### Applications
 
-This game is often used as a simple decision-making tool or just for fun.
+Beyond entertainment, Rock Paper Scissors is often used in decision-making, probability studies, and as an introductory example in computer science and game theory due to its simple yet rich structure.
 
-## Project Structure
-
-- **HTML:**  
-    - Defines the layout, including the game area, score display, result message, and rules panel.
-
-- **CSS:**  
-    - Styles the game for a visually appealing and responsive interface.
-
-- **JavaScript:**  
-    - Handles game logic, score updates, result display, and toggling the rules panel.
-
-## How to Play
-
-1. Open the HTML file in your browser.
-2. Click on Rock, Paper, or Scissors to make your choice.
-3. The computer will automatically make its choice.
-4. The result and updated scores will be displayed.
-5. Click the "RULES" button to view or hide the game rules.
-
-## Customization
-
-You can easily extend or modify this project by:
-- Changing the UI styles in the CSS section.
-- Adding more features, such as a reset button or sound effects.
-- Enhancing the game logic for multiple rounds or advanced statistics.
-
----

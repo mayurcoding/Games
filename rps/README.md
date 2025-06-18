@@ -105,3 +105,26 @@ Before you begin, ensure you have [Node.js](https://nodejs.org/) installed (opti
    ```bash
    git clone https://github.com/your-username/rock-paper-scissors-game.git
    cd rock-paper-scissors-game
+   ```
+
+2. **Project Structure**
+
+   ```
+   rock-paper-scissors-game/
+   ├── index.html         # Main HTML file
+   ├── style.css          # Stylesheet for the game
+   ├── script.js          # JavaScript logic
+   ├── assets/            # Images, icons, and sound files
+   └── README.md          # Project documentation
+   ```
+
+3. **Browser Compatibility**
+
+   - The game works on all modern browsers (Chrome, Firefox, Edge, Safari).
+   - For the best experience, ensure JavaScript is enabled.
+
+4. **License**
+
+   - This project is open-source and available under the [MIT License](LICENSE).
+
+---

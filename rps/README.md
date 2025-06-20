@@ -115,7 +115,23 @@ Before you begin, ensure you have [Node.js](https://nodejs.org/) installed (opti
    ├── style.css          # Stylesheet for the game
    ├── script.js          # JavaScript logic
    ├── assets/            # Images, icons, and sound files
-   └── README.md          # Project documentation
+   - **Leaderboard System**  
+      Track and display the top scores achieved by players during the current session.
+
+   - **Custom Avatars**  
+      Choose or upload a custom avatar to personalize your player profile.
+
+   - **Multilingual Support**  
+      Switch between multiple languages for the game interface and rules.
+
+   - **Statistics Dashboard**  
+      View detailed stats such as win/loss ratio, most chosen move, and streaks.
+
+   - **Share Results**  
+      Share your game results or scores directly to social media platforms.
+
+   - **Customizable Rules**  
+      Option to add new moves (like "Lizard" and "Spock") or tweak existing rules for a unique gameplay experience.
    ```
 
 3. **Browser Compatibility**
